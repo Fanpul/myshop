@@ -187,19 +187,21 @@ div.oferta_pagination .current {
 	background-color:#fff;
 }
 .left_menu_corner{
+	display: none;
 	width:9px;
 	height:50px;
 	float:left;
 	background:url(images/menu_left.gif) no-repeat center;
 }
 .right_menu_corner{
+	display: none;
 	width:9px;
 	height:50px;
 	float:left;
 	background:url(images/menu_right.gif) no-repeat center;
 }
 ul.menu {
-	list-style-type:none; float:left; display:block; width:982px; 
+	list-style-type:none; float:left; display:block; width:100%; 
 	margin:0px; padding:0px;background:url(images/menu_bg.gif) repeat-x;}
 
 	ul.menu li {
@@ -680,3 +682,4 @@ ul.menu {
 									color:#666666;
 									padding:10px 0 0 60px;
 								}
+							
