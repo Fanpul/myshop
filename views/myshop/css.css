@@ -1,0 +1,26 @@
+/*CSS*/
+
+.cart-title{
+    color: #847676;
+}
+
+#mycart{
+    width: 80%;
+    background: url(images/details_box_center.gif) repeat-y;
+    padding: 3px;
+    color: #847676;
+}
+
+#mycart th{
+    border-bottom: 1px solid #999;
+    padding: 3px;
+}
+
+.total{
+    color: #847676;
+    font-weight: bold;
+}
+
+#cart-form .product-price{
+    font-style: normal;
+}

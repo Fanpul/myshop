@@ -1,0 +1,684 @@
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, p, form, fieldset, table, th, td { margin: 0; padding: 0; }
+img{
+	border:none;
+	}
+ul{
+	list-style:none;
+	}	
+input{
+	outline:none;
+	}	
+.clr{
+	clear:both;
+	}	
+body{
+	background:#f2f2f2;
+	}
+.main{
+	min-width:980px; margin:0 auto; background:#fff; max-width:1200px; overflow:hidden;
+	}
+	.header{
+		overflow:hidden;
+		}
+	.logo, .slogan{	
+		float:left;
+		}
+	.logo{
+		margin:8px 0 0 30px;	
+		}
+	.slogan{
+		margin:40px 0 0 30px;	
+		}
+	.head-contact{	 
+		background:#f8fafb url(../images/phone-img.jpg) 251px 8px no-repeat; 
+		float:right; 
+		border:2px solid #f2f6f8;
+		border-radius:0 0 10px 10px; 
+		text-align:right; 
+		margin:0 6px 0 0; 
+		padding: 5px 65px 5px 14px; 
+		font:12px Verdana;
+		color:#000;
+		width:222px;
+		}	
+		.head-contact p{
+			margin:0 0 3px 0; line-height:1.3;
+			}
+		.head-contact strong{	
+			font-weight:normal; font-size:14px;
+			}
+		.head-contact span{
+			font-size:21px; font-weight:bold;
+			}	
+	.search-head{
+		overflow:hidden; clear: right; float:right; background:url(../images/bg-search.jpg) left top no-repeat; width:305px; height:29px; margin:5px 6px 5px 0; 
+		}				
+		.search-head li{
+			float:left;
+			}
+		#quickquery{
+			border:none; margin: 6px 23px 3px 10px; width: 210px; font-size:12px;
+			}	
+		.search-btn{
+			margin:3px 0 0 0;
+			}
+	.menu{
+		display: table-row; background:url(../images/menu-bg.jpg) top repeat-x;
+		}
+		.menu li{
+			background:url(../images/menu-bg-light.png) center top no-repeat; border-right:1px solid #065786; border-left:1px solid #319ad0;
+			width: auto; 
+			display: table-cell;
+			text-align: center;
+			height: 50px;
+			vertical-align: bottom; 
+			}
+		.menu li:first-child{
+			border-left:none;
+			}
+		.menu li:last-child{
+			border-right:none;
+			}
+		.menu li:hover{
+			border-right:1px solid #00446b; border-left:1px solid #00446b; background:#00446b url(../images/menu-bg-light.png) center top no-repeat;
+			}	
+		.menu li:first-child:hover{
+			border-left:none;
+			}
+		.menu li:last-child:hover{
+			border-right:none;
+			}				
+			.menu li a{
+				display:block; font:14px Verdana; color:#fff; text-decoration:none;
+				width: 1000px; 
+			    height: 50px;
+			    display: table-cell; 
+			    vertical-align: middle;
+				}	
+	#contentwrapper{
+		float: left;
+		width: 100%; 
+		}
+		
+		#content{
+		margin: 0 245px 0 240px;		
+		}
+		
+		#left-bar{
+		float: left;
+		width: 240px;
+		margin-left: -100%;
+		}
+		
+		#right-bar{
+		float: left;
+		width: 245px; 
+		margin-left: -245px; 
+		background: #ffg;
+		}
+	
+	.left-bar-cont{
+		background:#f7f7f7; margin:6px 0 0 6px;
+		}	
+		.left-bar-cont h2{
+			background: #0e92c3; 
+			background: -moz-linear-gradient(left, #0e92c3 43%, #04588f 100%);
+			background: -webkit-gradient(linear, left top, right top, color-stop(43%,#0e92c3), color-stop(100%,#04588f));
+			background: -webkit-linear-gradient(left, #0e92c3 43%,#04588f 100%);
+			background: -o-linear-gradient(left, #0e92c3 43%,#04588f 100%);
+			background: -ms-linear-gradient(left, #0e92c3 43%,#04588f 100%);
+			background: linear-gradient(left, #0e92c3 43%,#04588f 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e92c3', endColorstr='#04588f',GradientType=1 );
+			border-radius:4px 4px 0 0;
+			font:normal 18px Verdana;
+			color:#fff;
+			padding: 5px 0 5px 10px;
+			}
+		.left-bar-cont h4{
+			background: #0e92c3; 
+			background: -moz-linear-gradient(left, #0e92c3 43%, #04588f 100%);
+			background: -webkit-gradient(linear, left top, right top, color-stop(43%,#0e92c3), color-stop(100%,#04588f));
+			background: -webkit-linear-gradient(left, #0e92c3 43%,#04588f 100%);
+			background: -o-linear-gradient(left, #0e92c3 43%,#04588f 100%);
+			background: -ms-linear-gradient(left, #0e92c3 43%,#04588f 100%);
+			background: linear-gradient(left, #0e92c3 43%,#04588f 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e92c3', endColorstr='#04588f',GradientType=1 );
+			font:bold 14px Verdana;
+			color:#fff;
+			padding: 5px 0 5px 15px;
+			}	
+		.nav-catalog{
+			padding:10px 10px 20px 55px; border-bottom:1px solid #e1e1e1; list-style:url(../images/disc.gif);
+			}
+			.nav-new a, .nav-lider a, .nav-sale a{
+				font:bold 14px Verdana; text-decoration:none; color:#000;
+				}
+			.nav-new a:hover, .nav-lider a:hover, .nav-sale a:hover{
+				text-decoration: underline;
+				}	 
+			.nav-new, .nav-lider, .nav-sale{
+				padding:12px 0 12px 55px;;
+				}	
+			.nav-new{
+				background:url(../images/new-nav.jpg) left center no-repeat; border-bottom:1px solid #e1e1e1;
+				}
+			.nav-lider{
+				background:url(../images/lider-nav.jpg) left center no-repeat; border-bottom:1px solid #e1e1e1; border-top:1px solid #fff;
+				}
+			.nav-sale{
+				background:url(../images/sale-nav.jpg) left center no-repeat;
+				}	
+			.nav-catalog ul{
+				padding:5px 0 0 20px;
+				}
+				.nav-catalog ul li{
+					margin: 0;
+					}
+			.nav-catalog li{
+				margin: 0 0 5px 0;
+				}
+				.nav-catalog li a{
+					font:bold 14px Verdana; color:#000; text-decoration:none;
+					}
+				.nav-catalog li a:hover{
+					font:bold 14px Verdana; color:#1b7cb1; text-decoration:none;
+					}	
+			
+		.bar-contact{
+			color:#555; border-top:1px solid #fff; border-bottom:1px solid #e1e1e1; padding: 15px 0 20px 15px;
+			}	
+			.bar-contact h3{
+				font:normal 18px Verdana; color:#000;
+				}
+			.bar-contact p{
+				font:normal 14px Verdana; color:#000; margin: 15px 0 0 0;
+				}	
+				.bar-contact p span{
+					font:bold 18px Verdana; color:#000;
+					}	
+		.news{
+			border-top:1px solid #fff; border-bottom:1px solid #e1e1e1; padding: 15px 0 20px 15px;
+			}	
+			.news h3{
+				font:bold 16px Verdana; color:#000;
+				}
+			.news p{
+				margin:15px 0 0 0;
+				}
+			.news span{
+				color:#7f7e7e; font:normal 10px Verdana; background:#e7e7e7; padding: 1px 7px;
+				}		
+			.news a{
+				font:normal 12px Verdana; color:#555;  display:block; margin:5px 0 0 0;
+				}
+			.news a:hover{
+				text-decoration:none;
+				}	
+			.news-arh{
+				background:#eaeaea; border:1px solid #fff; margin: 15px 0 0 !important; padding: 8px 15px 10px; width: 102px;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				-webkit-box-shadow: #eee 0px 0px 7px;
+				-moz-box-shadow: #eee 0px 0px 7px;
+				box-shadow: #eee 0px 0px 7px;
+				}	
+		.info{
+			color:#555; border-top:1px solid #fff; border-bottom:1px solid #e1e1e1; padding: 15px 0 20px 15px;
+			}
+		.info:last-child{
+			border-bottom:none;
+			}	
+			.info h3{
+				font:normal 18px Verdana; color:#000;
+				}
+			.info p{
+				margin:4px 0 0 0;
+				}	
+			.info a{
+				font:normal 12px Verdana; color:#555;
+				}
+			.info a:hover{
+				text-decoration:none;
+				}
+					
+		.right-bar-cont{
+			margin:6px 6px 0 0px;
+			}
+		.right-bar-cont h2{
+			background: #0e92c3; 
+			background: -moz-linear-gradient(left, #0e92c3 43%, #04588f 100%);
+			background: -webkit-gradient(linear, left top, right top, color-stop(43%,#0e92c3), color-stop(100%,#04588f));
+			background: -webkit-linear-gradient(left, #0e92c3 43%,#04588f 100%);
+			background: -o-linear-gradient(left, #0e92c3 43%,#04588f 100%);
+			background: -ms-linear-gradient(left, #0e92c3 43%,#04588f 100%);
+			background: linear-gradient(left, #0e92c3 43%,#04588f 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e92c3', endColorstr='#04588f',GradientType=1 );
+			border-radius:4px 4px 0 0;
+			font:normal 19px Verdana;
+			color:#fff;
+			padding: 5px 0 5px 10px;
+			}	
+			.enter, .basket, .share-search{
+				margin:0 0 10px 0;
+				}
+			.enter div, .basket div, .share-search div{
+				background:#f7f7f7; font:bold 15px Verdana; color:#000; padding:15px 0;
+				}
+				.enter p span, .basket p span{
+					color:#2c88b9;
+					}
+				.enter img, .basket img{
+					display:block; margin:0 auto;
+					}
+				.basket div p{
+					padding:0 0 15px 20px; line-height: 1.8;
+					}	
+					
+			.share-search div{
+				font-size:12px; font-weight:normal; padding:10px 10px 25px 10px;
+				}
+				.share-search div p{
+					font-size:14px; margin: 0 0 8px 0;
+					}
+				.share-search div select{
+					width:200px; font-size:14px; padding: 5px;
+					}	
+				.podbor-price{
+					width:60px; border:1px solid #959b9e; text-align:right; font-size:12px;
+					}
+				.podbor{
+					margin:20px auto 0 auto; width:170px; display:block;
+					}	
+						
+						
+	.catalog-index{
+		overflow:hidden;
+		}	
+		.catalog-index h1{
+			text-align:center; margin:15px 0 20px 0;
+			}
+		.product-index{
+			float:left; width:50%; margin:0 0 60px 0; text-align:center;
+			}
+			.product-index h2{
+				font:bold 14px Verdana; color:#2b8aba; margin:0 0 10px 0;
+				}
+				.product-index h2 a{
+					color:#2b8aba;
+					}
+				.product-index h2 a:hover{
+					text-decoration:none;
+					}		
+			.product-index p{
+				font:bold 12px Verdana; margin:0 0 10px 0;
+				}
+				.product-index p span{
+					font:30px Candara;
+					}	
+
+.footer{
+	background:#006b98 url(../images/footer-bg.jpg) top repeat-x; color:rgba(255, 255, 255, 0.7); overflow:hidden;
+	}	
+	.flogo{
+		float:left; margin: 35px 0 0 20px;
+		}
+		.flogo p{
+			margin:10px 0 0 0; font:bold 14px Verdana;
+			}
+	.fphone{
+		float:right; font:12px Verdana; text-align:right; margin: 15px 20px 0 0;
+		}	
+		.fphone h2{
+			font-size:14px;
+			}
+		.fphone h1{
+			font-size:21px; margin-bottom:25px;
+			}
+	.fmenu{
+		font:14px Verdana; overflow:hidden; width:360px; margin:15px auto 0 auto; padding:0 0 15px 0;
+		}
+		.fmenu p{
+			font-weight:bold; text-align:center;
+			}
+		.fmenu ul{
+			float:left; list-style:none; margin:15px;
+			}	
+			.fmenu ul li{
+				margin:0 0 5px 0;
+				}
+			.fmenu ul a{
+				color:rgba(255, 255, 255, 0.7); font-weight:bold;
+				}
+			.fmenu ul a:hover{
+				color:rgba(255, 255, 255, 1); font-weight:bold; text-decoration:none;
+				}									
+
+/*		Табличный вид каталога		*/
+
+.kroshka{
+	font:14px Verdana; color:#555; margin:15px 0 35px 30px;
+	}
+	.kroshka a{
+		color:#555;
+		}
+	.kroshka a:hover{
+		color:#2b8aba; text-decoration:none;
+		}
+	.kroshka span{
+		color:#2b8aba;
+		}	
+.vid-sort{
+	font:12px Verdana; color:#555; margin: 0 0 35px 30px; background:#fafbfb; border-bottom:1px solid #dee7ec; padding:10px 0 10px 5px;
+	}
+	.vid-sort img{
+		margin: 0 2px; position:relative; top:3px;
+		}
+	.vid-sort a{
+		color:#555;
+		}
+	.vid-sort a:hover{
+		text-decoration:none;
+		}	
+	a.sort-top{
+		background:url(../images/sort-top.gif) left 6px no-repeat; padding:0 0 0 12px;		
+		}
+	a.sort-bot{
+		background:url(../images/sort-bot.gif) left 6px no-repeat; padding:0 0 0 12px;		
+		}
+	a.sort-top-act{
+		background:url(../images/sort-top-act.gif) left 6px no-repeat; padding:0 0 0 12px; font-weight:bold;
+		}
+	a.sort-bot-act{
+		background:url(../images/sort-bot-act.gif) left 6px no-repeat; padding:0 0 0 12px; font-weight:bold;
+		}	
+	.product-table{
+		float:left; width:33%; margin:0 0 60px 0; text-align:center;
+		}
+		.product-table h2{
+			font:12px Verdana; color:#2b8aba; margin:0 0 10px 0;
+			}
+			.product-table h2 a{
+				color:#2b8aba;
+				}
+			.product-table h2 a:hover{
+				text-decoration:none;
+				}		
+		.product-table p{
+			font:12px Verdana; margin:0 0 10px 0;
+			}
+			.product-table p span{
+				font:24px Candara;
+				}
+		.cat-table-more{
+			margin:5px 0 0px 0!important;
+			}
+			.cat-table-more a{
+				color:#888;
+				}	
+			.cat-table-more a:hover{
+				text-decoration:none;
+				}
+		.product-table-img{
+			position:relative;
+			}	
+			.product-table-img div{
+				position:absolute; top:0; right:0; margin:0 20px 0 0;
+				}										
+				.product-table-img div img{
+					display:block;
+					}
+					
+.pager{
+	background:#fafbfb; border-top:1px solid #ebf1f4; font:15px Verdana; color:#2b8aba; padding:10px; margin:5px 15px;
+	}	
+	.pager a{
+		color:#000; font-size:14px; padding:0 3px;
+		}
+	.pager a:hover{
+		color:#2b8aba; text-decoration:none;
+		}	
+	.pager img{
+		position:relative; top:5px;
+		}	
+		
+		
+/*		Линейный вид каталога		*/
+
+.product-line{
+	overflow:hidden; margin:0 20px 35px 30px;
+	}
+	.product-line-img{
+		float:left;
+		}
+	.product-line-price{
+		float:right;
+		}		
+		.product-line-price p{
+			font:12px Verdana; margin:0 0 5px 0;
+			}
+			.product-line-price p span{
+				font:24px Candara; line-height:0;
+				}
+			.product-line-price p a{
+				color:#000;
+				}	
+			.product-line-price p a:hover{
+				text-decoration:none;
+				}	
+		.product-line-price div{
+			margin:5px 0 0 0; height: 26px;
+			}	
+			.product-line-price div img{
+				margin:0 3px;
+				}					
+	.product-line-opis{
+		font:12px Verdana; padding:0 130px 0 60px;
+		}
+		.product-line-opis h2{
+			font:12px Verdana; color:#2b8aba; margin:0 0 7px 0; line-height:0.8;
+			}	
+			.product-line-opis h2 a{
+				color:#2b8aba;
+				}
+			.product-line-opis h2 a:hover{
+				text-decoration:none;
+				}
+				
+	.content-txt{
+		overflow:hidden; margin:0 30px; font: 12px Verdana; color:#000;
+		}	
+		.content-txt h1{		
+			font-size:24px; color:#2b8aba; font-weight:normal; margin:0 0 15px 0;
+			}
+		.content-txt h2{		
+			font-size:20px; font-weight:normal; margin:20px 0 15px 0;
+			}
+		.content-txt h3{		
+			font-size:18px; font-weight:normal; margin:20px 0 15px 0;
+			}
+		.content-txt h4{		
+			font-size:14px; font-weight:bold; margin:20px 0 15px 0;
+			}
+		.content-txt h5{		
+			font-size:12px; font-weight:bold; margin:20px 0 15px 0;
+			}
+		.content-txt h6{		
+			font-size:10px; font-weight:bold; margin:20px 0 15px 0;
+			}
+		.content-txt p{
+			margin:0 0 10px 0;
+			}	
+		.content-txt a{
+			color:#2b8aba;
+			}	
+			.content-txt a:hover{
+				text-decoration:none;
+				}	
+		.content-txt ul{
+			list-style:disc; margin:20px 0 15px 30px;
+			}	
+			.content-txt ul li{					
+				line-height:1.7;
+				}
+				
+/*		ДЕТАЛЬНЫЙ ВИД ТОВАРА		*/
+
+.catalog-detail{	
+	margin:0 30px;
+	}
+	
+/*		Galery		*/
+
+#slideshow {list-style:none; color:#fff}
+#slideshow span {display:none}
+#wrapper {width:200px; margin:0; display:none; overflow:hidden; float:left;}
+#wrapper * {margin:0; padding:0}
+#fullsize {position:relative; width:200px; height:300px; padding:2px; border:2px solid #fff;}
+#information {position:absolute; bottom:0; width:200px; height:0; background:#000; color:#fff; overflow:hidden; z-index:200; opacity:.7; filter:alpha(opacity=70)}
+#information h3 {padding:0; font-size:0;}
+#information p {padding:0}
+#image {width:200px}
+#image img {position:absolute; z-index:25; width:auto}
+.imgnav {position:absolute; width:25%; height:306px; cursor:pointer; z-index:150}
+#imgprev {left:0; background:url(../images/left.gif) left center no-repeat}
+#imgnext {right:0; background:url(../images/right.gif) right center no-repeat}
+#imglink {position:absolute; height:306px; width:100%; z-index:100; opacity:.4; filter:alpha(opacity=40)}
+.linkhover {background:url(../images/link.gif) center center no-repeat}
+#thumbnails {margin-top:15px}
+#slideleft {float:left; width:20px; height:50px; background:url(../images/scroll-left.gif) center center no-repeat;}
+#slideleft:hover {background:url(../images/scroll-lefth.gif) center center no-repeat;}
+#slideright {float:right; width:20px; height:50px; background:url(../images/scroll-right.gif) center center no-repeat;}
+#slideright:hover  {background:url(../images/scroll-righth.gif) center center no-repeat;}
+#slidearea {float:left; position:relative; width:150px; margin-left:5px; height:81px; overflow:hidden}
+#slider {position:absolute; left:0; height:81px}
+#slider img {cursor:pointer; border:1px solid #666; padding:2px}
+					
+.catalog-detail h1{
+	font:24px verdana; color:#2b8aba; margin:0 0 20px 0;
+	}
+.icon-detail{
+	margin:0 0 10px 210px;
+	}	
+.short-opais{
+	margin:0 0 40px 218px; font-family:Verdana;
+	}
+	.short-opais h3{
+		font-size:18px; font-weight: normal;
+		}
+	.short-opais p{
+		font-size:14px; margin:0 0 20px 0;
+		}
+	.price-detail{
+		font-size:18px!important;
+		}	
+		.price-detail span{
+			font-size:30px!important; font-family:Candara;
+			}	
+.long-opais{
+	font-family:Verdana;
+	}	
+	.long-opais h3{
+		font-size:18px; font-weight:normal; margin:0 0 10px;
+		}	
+	.long-opais p{
+		font-size:12px; margin:0 0 20px 0;
+		}
+.tech-harakt{
+	margin:40px 0 0 0; font-family:Verdana;
+	}
+	.tech-harakt h3{	
+		font-size:24px; font-weight:normal; margin:0 0 20px 0;
+		} 	
+	.tech-harakt h4{
+		font-size:12px; line-height:2;
+		}
+	.tech-harakt ul{
+		margin:0 0 20px 0;
+		}	
+	.tech-harakt ul li{
+		font-size:12px; line-height:1.5;
+		}	
+		
+/*		Заказ		*/
+
+#content-zakaz{
+	width:98%; margin:0 auto;
+	}
+	#content-zakaz h2{
+		text-align:center; font:normal 24px Verdana; margin:20px 0 10px 0;
+		}
+	.zakaz-maiin-table{
+		width:100%; margin: 0 0 30px;
+		}
+	.zakaz-maiin-table td{
+		padding:10px;
+		}		
+	.z_top{
+		background:#fafbfb; border-bottom:1px solid #dee7ec; font:bold 12px Verdana; color:#555; 
+		}
+	.z_bot{
+		background:#fafbfb; border-top:1px solid #dee7ec; font:bold 12px Verdana; color:#555;
+		}
+	.z_name{
+		}	
+		.z_name img{
+			float:left; margin:0 10px 0 0;
+			}	
+		.z_name a{
+			font:12px Verdana; color:#2b8aba;
+			}				
+		.z_name a:hover{
+			text-decoration:none;
+			}
+		.z_kol, .z_price, .z_del{
+			text-align:center;
+			}
+		.z_kol{
+			width:75px;
+			}
+		.z_price{
+			width:80px;
+			}
+		.z_del{
+			width:65px;
+			}		
+		.kolvo{
+			width:48px; height:22px; font:16px Verdana; color:#000; background:#fafafa; border:1px solid #b5b5b5; text-align:center;	
+			}
+	.sposob-dostavki p{
+		font-size:12px; font-family:Verdana; margin-top:7px;
+		}
+	.sposob-dostavki{
+		margin:0 0 30px 0;
+		}			
+	#content-zakaz h4{
+		font:bold 14px Verdana;
+		}	
+	#content-zakaz h3{
+		font:bold 18px Verdana;
+		}	
+	
+	.zakaz-data{
+		width:100%; background:#fafafa; margin:10px 0 40px 0;
+		}
+		.zakaz-data td{
+			vertical-align: middle; padding:10px 10px 0px 10px;
+			}
+	.zakaz-txt{
+		font:14px Verdana; color:#555555;
+		}
+	.zakaz-prim{
+		font:12px Verdana; color:#c0c0c0; font-style:italic;
+		}
+	.zakaz-inpt{
+		}	
+		.zakaz-inpt input{
+			width:330px; height:28px; border:1px solid #ccc;
+			}
+		.zakaz-txtarea{	
+			padding:10px 10px 20px 10px !important;
+			}		
+		.zakaz-txtarea textarea{
+			width:330px; height:100px; border:1px solid #ccc;
+			}			
