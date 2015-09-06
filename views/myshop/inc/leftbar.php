@@ -14,7 +14,7 @@
     <?php if($brand_list):
     foreach ($brand_list as $value):
     ?>    
-        <li class="even"><a href="?view=products&brand_id=<?=$value['brand_id']?>"><?=$value['brand_name']?></a></li>
+        <li class="even"><a href="?view=cat&category=<?=$value['brand_id']?>"><?=$value['brand_name']?></a></li>
     <?php endforeach;?>               
     <?php endif;?> 
 

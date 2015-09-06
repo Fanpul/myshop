@@ -2,6 +2,7 @@
 defined('ISHOP') or die('Access denied');
 define('PATH', 'http://myshop.local/');
 define('MODEL', 'model/model.php');
+define('FUNCTIN', 'functions/functions.php');
 define('CONTROLLER', 'controller/controller.php');
 define('VIEW', 'views/');
 

@@ -1,6 +1,7 @@
 <?php
 
 defined('ISHOP') or die('Access denied');
+require_once FUNCTIN;
 require_once MODEL;
 
 $view = empty($_GET['view']) ? 'hits' : $_GET['view'];
@@ -15,8 +16,10 @@ switch ($view) {
 	case 'sale':
 		$eyestoppers = eyestopper('sale');
 		break;	
-	case 'products':
-		$eyestoppers = phones_by_brand($_GET['brand_id']);
+	case 'cat':
+		$category = abs((int)$_GET['category']);
+		$products = products($category);
+		$current_b = current_b($category);
 		break;	
 	default:
 		$view = 'hits';
