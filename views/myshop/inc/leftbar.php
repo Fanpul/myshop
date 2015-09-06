@@ -10,13 +10,14 @@
     <div class="title_box">Мобильные телефоны</div>
 
     <ul class="left_menu">
-        <li class="odd"><a href="#">Alcatel</a></li>
-        <li class="even"><a href="#">Ericsson</a></li>
-        <li class="odd"><a href="#">LG</a></li>
-        <li class="even"><a href="#">Mitsubish</a></li>
-        <li class="odd"><a href="#">Motorola</a></li>
-        <li class="even"><a href="#">Nokia</a></li>
-        <li class="odd"><a href="#">Panasonic</a></li>
+
+    <?php if($brand_list):
+    foreach ($brand_list as $value):
+    ?>    
+        <li class="even"><a href="?view=products&brand_id=<?=$value['brand_id']?>"><?=$value['brand_name']?></a></li>
+    <?php endforeach;?>               
+    <?php endif;?> 
+
     </ul> 
 
     <div class="title_box">Контакты</div>

@@ -15,10 +15,13 @@ switch ($view) {
 	case 'sale':
 		$eyestoppers = eyestopper('sale');
 		break;	
+	case 'products':
+		$eyestoppers = phones_by_brand($_GET['brand_id']);
+		break;	
 	default:
 		$view = 'hits';
 		$eyestoppers = eyestopper('hits');
 		break;
 }
-
+$brand_list = brands('0');
 require_once TEMPLATE.'index.php';
