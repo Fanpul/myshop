@@ -44,3 +44,17 @@ function current_brand($category)
 	}
 	return $cur_br;
 }
+
+function total_sum($goods){
+	$total_sum = 0;
+	$str_goods = implode(",", array_keys($goods));
+	$query = "SELECT goods_id, name, price FROM goods WHERE goods_id IN ($str_goods)";
+	$res = mysql_query($query) or die(mysql_error());
+
+	while($row = mysql_fetch_assoc($res)){
+		$_SESSION['cart'][$row['goods_id']]['name'] = $row['name'];
+		$_SESSION['cart'][$row['goods_id']]['price'] = $row['price'];
+		$total_sum += $_SESSION['cart'][$row['goods_id']]['qty'] * $row['price'];
+	}
+	return $total_sum;
+}

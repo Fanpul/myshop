@@ -1,16 +1,23 @@
 <?php defined('ISHOP') or die('Access denied'); ?>
 <div class="right_content">
+
     <div class="shopping_cart">
         <div class="cart_title">Корзина</div>
 
+        <?php if($_SESSION['total_quantity']):?>
         <div class="cart_details">
-            1 товар <br />
+            товаров в корзине: <?=$_SESSION['total_quantity']?><br />
             <span class="border_cart"></span>
-            Сумма: <span class="price">2350грн</span>
+            Сумма: <span class="price"><?=$_SESSION['total_sum']?> грн</span>
+
         </div>
 
         <div class="cart_icon"><a href="#" title="header=[Оформить заказ] body=[&nbsp;] fade=[on]"><img src="<?=TEMPLATE?>images/shoppingcart.png" alt="" title="" width="48" height="48" border="0" /></a></div>
+        <?php else:?>
+            Корзина пуста
+        <?php endif;?>
     </div>
+
     <div class="title_box">Авторизация</div>  
     <div class="border_box">
         <div class="box_btn_reg">
