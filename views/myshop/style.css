@@ -688,4 +688,12 @@ ul.menu {
 									color:#666666;
 									padding:10px 0 0 60px;
 								}
-							
+/*cat.php*/
+.list-or-grid{
+    float: right;
+    margin-right: 20px;
+    font-size: 19px;
+}
+.list-or-grid a{
+	color:#47838E;
+}

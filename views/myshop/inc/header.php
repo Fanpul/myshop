@@ -11,7 +11,7 @@
 <!--[if IE 6]>
 <link rel="stylesheet" type="text/css" href="<?=TEMPLATE?>iecss.css" />
 <![endif]-->
-
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <script type="text/javascript" src="<?=TEMPLATE?>js/boxOver.js"></script>
 <script type="text/javascript" src="<?=TEMPLATE?>js/functions.js"></script>
 </head>

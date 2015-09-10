@@ -19,7 +19,7 @@ switch ($view) {
 	case 'cat':
 		$category = abs((int)$_GET['category']);
 		$products = products($category);
-		$current_b = current_b($category);
+		$current_brand = current_brand($category);
 		break;	
 	default:
 		$view = 'hits';

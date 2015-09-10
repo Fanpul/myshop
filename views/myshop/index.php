@@ -11,6 +11,22 @@
 	require_once 'inc/rightbar.php' 
 ?>
 	<div class="clr"></div>	
+
 <?php 
 	require_once 'inc/footer.php' 
 ?>
+<script>
+	var query = '<?=$_SERVER['QUERY_STRING']?>';
+	$(".grid_list").click(function(){
+		var display = $(this).attr("id"); 
+		display = (display == "grid") ? "grid" : "list";
+		if(display == $.cookie("display")){
+			return false; 
+		}
+		else{
+			$.cookie("display", display); 
+			window.location = "?" + query;
+			return false;
+		}
+	});
+</script>
