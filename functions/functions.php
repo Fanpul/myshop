@@ -7,14 +7,14 @@ function printarr($array) {
 	echo "</pre>";
 }
 
-function adtocart($goods_id){
+function addtocart($goods_id){
 	if(isset($_SESSION['cart'][$goods_id])){
-		$_SESSION['1'][$goods_id]['qty'] += 1;
-		return $_SESSION['1'];
+		$_SESSION['cart'][$goods_id]++;
+		return $_SESSION['cart'];
 	}
 	else{
-		$_SESSION['1'][$goods_id]['qty'] = 1;
-		return $_SESSION['1'];
+		$_SESSION['cart'][$goods_id] = 1;
+		return $_SESSION['cart'];
 	}
 }
 

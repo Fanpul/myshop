@@ -58,3 +58,34 @@ function total_sum($goods){
 	}
 	return $total_sum;
 }
+
+function total_items($cart)
+	{
+		$num_items = 0;
+
+		if(is_array($cart))
+		{
+			foreach ($cart as $id => $qty)
+			{
+				$num_items += $qty;
+			}
+		}
+
+		return $num_items;
+	}
+
+function total_summ($goods)
+{
+	$total_sum = 0.0;
+	if(is_array($goods))
+	{
+		foreach ($goods as $id => $qty)
+		{
+			$query = "SELECT price, name FROM goods WHERE goods_id = '$id'";
+			$result = mysql_query($query) or die(mysql_error());
+			$item_sum = mysql_result($result,0,'price');
+			$total_sum += $item_sum * $qty;
+		}
+	}
+	return $total_sum;
+}

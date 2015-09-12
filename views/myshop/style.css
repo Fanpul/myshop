@@ -372,6 +372,7 @@ ul.menu {
 									padding:5px 10px;
 								}
 								.center_title_bar{
+									position: relative;
 									width:520px;
 									height:33px;
 									float:left;
@@ -690,10 +691,15 @@ ul.menu {
 								}
 /*cat.php*/
 .list-or-grid{
-    float: right;
+    display: inline;
+    position: absolute;
+    right: 0;
     margin-right: 20px;
     font-size: 19px;
 }
 .list-or-grid a{
-	color:#47838E;
+	color: rgba(71, 131, 142, 0.31);
+}
+.active-type a{
+	color: rgba(71, 131, 142, 1);
 }

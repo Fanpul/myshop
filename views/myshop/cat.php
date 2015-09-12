@@ -1,12 +1,12 @@
 <?php defined('ISHOP') or die('Access denied');?>
 
-<? printarr($_SESSION);?>
+<? //printarr($_SESSION);?>
 
 <div class="center_title_bar">Телефоны по брендам: <?=$current_brand[0]['brand_name']?>
-<span class="list-or-grid">
-	<a href="#" id="grid" class="grid_list"><i class="fa fa-th"></i></a>
-	<a href="#" id="list" class="grid_list"><i class="fa fa-align-justify"></i></a>
-</span>
+	<div class="list-or-grid">
+		<span <?php if(!isset($_COOKIE['display']) OR $_COOKIE['display'] == 'grid') echo 'class="active-type"'?>><a href="#" id="grid" class="grid_list"><i class="fa fa-th"></i></a></span>
+		<span <?php if($_COOKIE['display'] == 'list') echo 'class="active-type"'?>><a href="#" id="list" class="grid_list"><i class="fa fa-align-justify"></i></a></span>
+	</div>
 </div>
 
 <?php if(!isset($_COOKIE['display']) OR $_COOKIE['display'] == 'grid'):
@@ -46,7 +46,7 @@
                      </div>
                      <div class="prod_price_big"><span class="reduce">2000</span>  <span class="price"><?=$value['price']?></span> грн.</div>
                      
-                    <a href="#" class="btn-add-cart" title="header=[В корзину] body=[&nbsp;] fade=[on]"><img src="<?=TEMPLATE?>images/cart.gif" alt="" title="" border="0" class="left_bt" />Добавить в корзину</a>
+                    <a href="?view=addtocart&goods_id=<?=$value['goods_id']?>" class="btn-add-cart" title="header=[В корзину] body=[&nbsp;] fade=[on]"><img src="<?=TEMPLATE?>images/cart.gif" alt="" title="" border="0" class="left_bt" />Добавить в корзину</a>
                 
                  </div>                        
         </div>

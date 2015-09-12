@@ -3,7 +3,13 @@ session_start();
 defined('ISHOP') or die('Access denied');
 require_once FUNCTIN;
 require_once MODEL;
-
+if(!isset($_SESSION['cart']))
+{
+	$_SESSION['cart'] = array();
+	$_SESSION['total_sum'] = 0.0;
+	$_SESSION['total_quantity'] = 0;
+	//$_SESSION['total_price'] = '0.00';
+}
 $view = empty($_GET['view']) ? 'hits' : $_GET['view'];
 
 switch ($view) {
@@ -23,17 +29,11 @@ switch ($view) {
 		break;	
 	case 'addtocart':
 		$goods_id = abs((int)$_GET['goods_id']);
-		$_SESSION['cart']['qty'] = 1;
-		$_SESSION['total_quantity'] = 0;
-		foreach($_SESSION['cart'] as $key => $value){
-			if(isset($value['price'])){
-				$_SESSION['total_quantity'] += $value['qty'];
-			}
-			else{
-				unset($_SESSION['cart'][$key]);
-			}
-		}
-		$_SESSION['total_sum'] = total_sum($_SESSION['cart']);
+		//$_SESSION['cart']['qty'] = 1;
+
+		$add_item = addtocart($goods_id);
+		$_SESSION['total_quantity'] = total_items($_SESSION['cart']);
+		$_SESSION['total_sum'] = total_summ($_SESSION['cart']);
 		redirect();
 		break;	
 	default:
