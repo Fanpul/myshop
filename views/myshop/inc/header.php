@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
 <title><?=TITLE?></title>
 <link rel="stylesheet" type="text/css" href="<?=TEMPLATE?>style.css" />
+<link rel="stylesheet" type="text/css" href="<?=TEMPLATE?>css.css" />
 <!--[if lt IE 9]>
 <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
 <![endif]-->

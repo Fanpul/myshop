@@ -10,7 +10,7 @@
             <span class="border_cart"></span>
             Сумма: <span class="price"><?=$_SESSION['total_sum']?> грн</span>
         </div>
-        <div class="cart_icon"><a href="#" title="header=[Оформить заказ] body=[&nbsp;] fade=[on]"><img src="<?=TEMPLATE?>images/shoppingcart.png" alt="" title="" width="48" height="48" border="0" /></a></div>
+        <div class="cart_icon"><a href="?view=cart" title="header=[Оформить заказ] body=[&nbsp;] fade=[on]"><img src="<?=TEMPLATE?>images/shoppingcart.png" alt="" title="" width="48" height="48" border="0" /></a></div>
         <?php else:?>
         <div class="cart_details">
             Корзина пуста

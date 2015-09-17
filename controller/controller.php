@@ -41,12 +41,16 @@ switch ($view) {
 		break;	
 	case 'addtocart':
 		$goods_id = abs((int)$_GET['goods_id']);
-		$add_item = addtocart($goods_id);
-		$_SESSION['total_quantity'] = total_items($_SESSION['cart']);
-		$_SESSION['total_sum'] = total_summ($_SESSION['cart']);
+		adtocart($goods_id);
+		//$_SESSION['total_quantity'] = total_items($_SESSION['cart']);
+		$_SESSION['total_sum'] = total_sum($_SESSION['cart']);
+		total_quantity();
 		redirect();
 		break;	
 	case 'reg':
+		//
+		break;	
+	case 'cart':
 		//
 		break;	
 	default:
