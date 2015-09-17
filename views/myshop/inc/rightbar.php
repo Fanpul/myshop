@@ -23,7 +23,23 @@
     <div class="title_box">Авторизация</div>  
     <div class="border_box">
         <div class="box_btn_reg">
-            <a class="btn-reg" href="#">Вход/Регистрация</a>
+            <?php if(!$_SESSION['auth']['user']):?>
+                <form class="form-auth" method="post" action="#">
+                    <input type="text" name="login" placeholder="Логин" />
+                    <input type="password" name="pass" placeholder="Пароль" />
+                    <a href="?view=reg">Регистрация</a>
+                    <input class="btn-reg" type="submit" name="auth" value="Войти">
+                </form>
+            <?php
+                if(isset($_SESSION['auth']['error'])){
+                    echo $_SESSION['auth']['error'];
+                    unset($_SESSION['auth']);
+                }
+            ?>
+            <?php else:?>
+                <p>Добро пожаловать, <?=$_SESSION['auth']['user']?></p>
+                <a href="?do=logout">Выход</a>
+            <?php endif;?>      
         </div>
     </div>  
 

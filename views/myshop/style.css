@@ -424,9 +424,12 @@ ul.menu {
 								}
 								/*---------box_btn_reg----------*/
 								.box_btn_reg{
-									padding: 30px 0;
+									padding: 10px 0;
 								}
 								.btn-reg{
+									display: block;
+									margin: auto;
+									cursor: pointer;
 									text-decoration:none; 
 									text-align:center; 
 									padding:10px 10px; 
@@ -702,4 +705,29 @@ ul.menu {
 }
 .active-type a{
 	color: rgba(71, 131, 142, 1);
+}
+
+/*reg.php*/
+.form-align{
+	margin-bottom: 10px;
+}
+
+.form-align label{
+	display: inline-block;
+    width: 115px;
+}
+
+/*rightbar.php*/
+.form-auth input {
+	margin-bottom: 5px;	
+	width: 120px;
+}
+.form-auth a{
+	text-decoration: none;
+    color: grey;
+    display: block;
+    margin-bottom: 5px;
+}
+.form-auth a:hover{
+	text-decoration: underline;
 }

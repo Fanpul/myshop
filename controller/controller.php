@@ -8,9 +8,21 @@ if(!isset($_SESSION['cart']))
 	$_SESSION['cart'] = array();
 	$_SESSION['total_sum'] = 0.0;
 	$_SESSION['total_quantity'] = 0;
-	//$_SESSION['total_price'] = '0.00';
 }
 $view = empty($_GET['view']) ? 'hits' : $_GET['view'];
+
+if($_POST['reg']){
+	registration();
+	redirect();
+}
+if($_POST['auth']){
+	authorization();
+	redirect();
+}
+if($_GET['do'] == 'logout'){
+	logout();
+	redirect();
+}
 
 switch ($view) {
 	case 'hits':
@@ -29,12 +41,13 @@ switch ($view) {
 		break;	
 	case 'addtocart':
 		$goods_id = abs((int)$_GET['goods_id']);
-		//$_SESSION['cart']['qty'] = 1;
-
 		$add_item = addtocart($goods_id);
 		$_SESSION['total_quantity'] = total_items($_SESSION['cart']);
 		$_SESSION['total_sum'] = total_summ($_SESSION['cart']);
 		redirect();
+		break;	
+	case 'reg':
+		//
 		break;	
 	default:
 		$view = 'hits';

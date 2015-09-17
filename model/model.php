@@ -89,3 +89,72 @@ function total_summ($goods)
 	}
 	return $total_sum;
 }
+
+function registration(){
+	$error = '';
+	$login = mysql_real_escape_string(trim($_POST['login']));
+	$pass = trim($_POST['pass']);
+	$name = mysql_real_escape_string(trim($_POST['name']));
+	$email = mysql_real_escape_string(trim($_POST['email']));
+	$phone = mysql_real_escape_string(trim($_POST['phone']));
+	$address = mysql_real_escape_string(trim($_POST['address']));
+
+	if(empty($login)) $error .= '<li>Не указан логин</li>';
+	if(empty($pass)) $error .= '<li>Не указан пароль</li>';
+	if(empty($name)) $error .= '<li>Не указано имя</li>';
+	if(empty($email)) $error .= '<li>Не указан емайл</li>';
+	if(empty($phone)) $error .= '<li>Не указан телефон</li>';
+	if(empty($address)) $error .= '<li>Не указан адрес</li>';
+
+	if(empty($error)){
+		$query = "SELECT customer_id FROM customers WHERE login = '$login' LIMIT 1";
+		$res = mysql_query($query) or die(mysql_error());
+		$row = mysql_num_rows($res);
+		if($row){
+			$_SESSION['reg']['res'] = "Пользователь с таким логином уже есть";
+			$_SESSION['reg']['name'] = $name;
+			$_SESSION['reg']['email'] = $email;
+			$_SESSION['reg']['phone'] = $phone;
+			$_SESSION['reg']['address'] = $address;
+		}
+		else{
+			$pass = md5($pass);
+			$query = "INSERT INTO customers (name, email, phone, address, login, password)
+			 VALUES ('$name', '$email', '$phone', '$address', '$login', '$pass')";
+			$res = mysql_query($query) or die(mysql_error());
+			if(mysql_affected_rows() > 0){
+				$_SESSION['reg']['res'] = "Вы успешно зарегестрировались";
+			 	$_SESSION['auth']['user'] = $name;
+			}
+		}
+	}
+	else{
+		$_SESSION['reg']['res'] = "Не заполнены обязательные поля: <ul>$error</ul>";
+		$_SESSION['reg']['login'] = $login;
+		$_SESSION['reg']['name'] = $name;
+		$_SESSION['reg']['email'] = $email;
+		$_SESSION['reg']['phone'] = $phone;
+		$_SESSION['reg']['address'] = $address;
+	}
+}
+
+function authorization(){
+	$login = mysql_real_escape_string(trim($_POST['login']));
+	$pass = trim($_POST['pass']);
+
+	if(empty($login) or empty($pass)){
+		$_SESSION['auth']['error'] = 'Заполните поля логин/пароль';
+	} 
+	else{
+		$pass = md5($pass);
+		$query = "SELECT  name FROM customers WHERE login='$login' AND password='$pass'";
+		$res = mysql_query($query) or die(mysql_error());
+		if(mysql_num_rows($res) == 1){
+			$row = mysql_fetch_row($res);
+			$_SESSION['auth']['user'] = $row[0];
+		}
+		else{
+			$_SESSION['auth']['error'] = "Не верные логин/пароль";	
+		}
+	}
+}

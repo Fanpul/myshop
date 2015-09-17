@@ -23,4 +23,7 @@ function redirect(){
 	header("Location: $redirect");
 	exit;
 }
-?>
+
+function logout(){
+	unset($_SESSION['auth']);
+}
