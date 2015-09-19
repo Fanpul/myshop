@@ -5,6 +5,7 @@ define('MODEL', 'model/model.php');
 define('FUNCTIN', 'functions/functions.php');
 define('CONTROLLER', 'controller/controller.php');
 define('VIEW', 'views/');
+define('PRODUCTIMG', PATH.'userfiles/');
 
 define('TEMPLATE', VIEW.'myshop/');
 define('TITLE', 'Интернет магазин мобильных телефонов');

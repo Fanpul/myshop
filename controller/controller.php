@@ -51,7 +51,22 @@ switch ($view) {
 		//
 		break;	
 	case 'cart':
-		//
+		if(isset($_GET['id'], $_GET['qty'])){
+			$goods_id = abs((int)$_GET['id']);
+			$qty = abs((int)$_GET['qty']);
+			$qty = $qty - $_SESSION['cart'][$goods_id]['qty'];
+			adtocart($goods_id, $qty);
+			$_SESSION['total_sum'] = total_sum($_SESSION['cart']);
+			total_quantity();
+			redirect();
+		}
+		if(isset($_GET['delete'])){
+			$id = abs((int)$_GET['delete']);
+			if($id){
+				delete_from_cart($id);
+			}
+			redirect();
+		}
 		break;	
 	default:
 		$view = 'hits';

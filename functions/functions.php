@@ -52,3 +52,13 @@ function redirect(){
 function logout(){
 	unset($_SESSION['auth']);
 }
+
+function delete_from_cart($id){
+    if($_SESSION['cart']){
+        if(array_key_exists($id, $_SESSION['cart'])){
+            $_SESSION['total_quantity'] -= $_SESSION['cart'][$id]['qty'];
+            $_SESSION['total_sum'] -= $_SESSION['cart'][$id]['qty'] * $_SESSION['cart'][$id]['price'];
+            unset($_SESSION['cart'][$id]);
+        }
+    }
+}

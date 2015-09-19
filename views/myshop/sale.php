@@ -13,7 +13,7 @@ foreach ($eyestoppers as $value):
 	</div>
 	<div class="bottom_prod_box"></div>             
 	<div class="prod_details_tab">
-		<a href="?view=addtocart&goods_id=<?=$product['goods_id']?>" class="btn-add-cart" title="header=[В корзину] body=[&nbsp;] fade=[on]"><img src="<?=TEMPLATE?>images/cart.gif" alt="" title="" border="0" class="left_bt" />Добавить в корзину</a>
+		<a href="?view=addtocart&goods_id=<?=$value['goods_id']?>" class="btn-add-cart" title="header=[В корзину] body=[&nbsp;] fade=[on]"><img src="<?=TEMPLATE?>images/cart.gif" alt="" title="" border="0" class="left_bt" />Добавить в корзину</a>
 	</div> 
 </div>
 <?php endforeach;?>
