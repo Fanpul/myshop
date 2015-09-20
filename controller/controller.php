@@ -51,6 +51,7 @@ switch ($view) {
 		//
 		break;	
 	case 'cart':
+		$dostavka = get_dostavka();
 		if(isset($_GET['id'], $_GET['qty'])){
 			$goods_id = abs((int)$_GET['id']);
 			$qty = abs((int)$_GET['qty']);

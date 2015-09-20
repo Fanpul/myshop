@@ -163,3 +163,13 @@ function authorization(){
 		}
 	}
 }
+
+function get_dostavka(){
+	$query = "SELECT * FROM dostavka";
+	$res = mysql_query($query) or die(mysql_error());
+	$dostavka = array();
+	while($row = mysql_fetch_assoc($res)){
+		$dostavka[] = $row;
+	}
+	return $dostavka;
+}
