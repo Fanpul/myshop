@@ -131,6 +131,7 @@ function registration(){
 				$_SESSION['reg']['res'] = "Вы успешно зарегестрировались";
 			 	$_SESSION['auth']['user'] = $name;
 			 	$_SESSION['auth']['customer_id'] = mysql_insert_id();
+			 	$_SESSION['auth']['email'] = $email;
 			}
 		}
 	}
@@ -153,12 +154,13 @@ function authorization(){
 	} 
 	else{
 		$pass = md5($pass);
-		$query = "SELECT customer_id, name FROM customers WHERE login='$login' AND password='$pass'";
+		$query = "SELECT customer_id, name, email FROM customers WHERE login='$login' AND password='$pass'";
 		$res = mysql_query($query) or die(mysql_error());
 		if(mysql_num_rows($res) == 1){
 			$row = mysql_fetch_row($res);
 			$_SESSION['auth']['customer_id'] = $row[0];
 			$_SESSION['auth']['user'] = $row[1];
+			$_SESSION['auth']['email'] = $row[2];
 		}
 		else{
 			$_SESSION['auth']['error'] = "Не верные логин/пароль";	
@@ -214,6 +216,10 @@ function save_order($customer_id, $dostavka_id, $prim){
 		mysql_query("DELETE FROM customers WHERE customer_id = $customer_id AND login = '' ");
 		return false;
 	}
+	if($_SESSION['auth']['email'])
+		$email = $_SESSION['auth']['email'];
+	else $email = $_SESSION['order']['email'];
+	mail_order($order_id, $email);
 	unset($_SESSION['cart']);
 	unset($_SESSION['total_sum']);
 	unset($_SESSION['total_quantity']);

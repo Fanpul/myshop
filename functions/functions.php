@@ -101,3 +101,17 @@ function add_order(){
     }
     save_order($customer_id, $dostavka_id, $prim);
 }
+
+function mail_order($order_id, $email){
+    $subject = "Заказ в интернет-магазине";
+    $headers .= "Content-type: text/plain; charset=utf-8\r\n";
+    $headers .= "From: MYSHOP";
+    $mail_body = "Благодарим Вас за заказ!\r\nНомер Вашего заказа - {$order_id}\r\n\r\n
+    Заказанные товары:\r\n";
+    foreach ($_SESSION['cart'] as $goods_id => $value) {
+        $mail_body .= "Наименование: {$value['name']}, Цена: {$value['price']}, Количество: {$value['qty']} шт.\r\n";
+    }
+    $mail_body .= "\r\nИтого: {$_SESSION['total_quantity']} на сумму: {$_SESSION['total_sum']}";
+    mail($email, $subject, $mail_body, $headers);
+    mail(ADMIN_EMAIL, $subject, $mail_body, $headers);
+} 

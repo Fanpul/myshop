@@ -6,6 +6,7 @@ define('FUNCTIN', 'functions/functions.php');
 define('CONTROLLER', 'controller/controller.php');
 define('VIEW', 'views/');
 define('PRODUCTIMG', PATH.'userfiles/');
+define('ADMIN_EMAIL','admin@shop.ru');
 
 define('TEMPLATE', VIEW.'myshop/');
 define('TITLE', 'Интернет магазин мобильных телефонов');

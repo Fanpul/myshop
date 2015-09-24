@@ -1,6 +1,6 @@
 <?php defined('ISHOP') or die('Access denied');?>
 
-<? printarr($_SESSION);?>
+<? //printarr($_SESSION);?>
 
 <div class="center_title_bar">Телефоны по брендам: <?=$current_brand[0]['brand_name']?>
 	<div class="list-or-grid">
