@@ -68,6 +68,11 @@ switch ($view) {
 			}
 			redirect();
 		}
+		if(isset($_POST['buy'])){
+			add_order();
+			redirect();
+			$info = "Мы с вами свяжемся!";
+		}
 		break;	
 	default:
 		$view = 'hits';

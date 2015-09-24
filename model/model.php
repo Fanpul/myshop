@@ -130,6 +130,7 @@ function registration(){
 			if(mysql_affected_rows() > 0){
 				$_SESSION['reg']['res'] = "Вы успешно зарегестрировались";
 			 	$_SESSION['auth']['user'] = $name;
+			 	$_SESSION['auth']['customer_id'] = mysql_insert_id();
 			}
 		}
 	}
@@ -152,11 +153,12 @@ function authorization(){
 	} 
 	else{
 		$pass = md5($pass);
-		$query = "SELECT  name FROM customers WHERE login='$login' AND password='$pass'";
+		$query = "SELECT customer_id, name FROM customers WHERE login='$login' AND password='$pass'";
 		$res = mysql_query($query) or die(mysql_error());
 		if(mysql_num_rows($res) == 1){
 			$row = mysql_fetch_row($res);
-			$_SESSION['auth']['user'] = $row[0];
+			$_SESSION['auth']['customer_id'] = $row[0];
+			$_SESSION['auth']['user'] = $row[1];
 		}
 		else{
 			$_SESSION['auth']['error'] = "Не верные логин/пароль";	
@@ -172,4 +174,49 @@ function get_dostavka(){
 		$dostavka[] = $row;
 	}
 	return $dostavka;
+}
+
+function add_customer($name, $email, $phone, $address){
+	$query = "INSERT INTO customers (name, email, phone, address) VALUES ('$name', '$email', '$phone', '$address')";
+	$res = mysql_query($query);
+	if(mysql_affected_rows() > 0){
+		return mysql_insert_id();
+	}
+	else{
+        $_SESSION['order']['res'] = "Ошибка при регистрации заказа: <ul>$error</ul>";
+        $_SESSION['order']['name'] = $name;
+        $_SESSION['order']['email'] = $email;
+        $_SESSION['order']['phone'] = $phone;
+        $_SESSION['order']['address'] = $address;
+        $_SESSION['order']['prim'] = $prim;
+        return false;		
+	}
+}
+
+function save_order($customer_id, $dostavka_id, $prim){
+	//$current_day = date("d.m.Y");
+	$query = "INSERT INTO orders(customer_id, date, dostavka_id, prim)
+				VALUES ('$customer_id', NOW(), '$dostavka_id', '$prim')";
+	$res = mysql_query($query) or die(mysql_error());
+	if(mysql_affected_rows() == -1){
+		mysql_query("DELETE FROM customers WHERE customer_id = $customer_id AND login = ''");
+		return false;
+	}
+	$order_id = mysql_insert_id();
+	foreach ($_SESSION['cart'] as $goods_id => $value) {
+		$val .= "($order_id, $goods_id, {$value['qty']}),"; 
+	}
+	$val = substr($val, 0, -1);
+	$query = "INSERT INTO zakaz_tovar(orders_id, goods_id, quantity) VALUES $val";
+	mysql_query($query) or die(mysql_error());
+	if(mysql_affected_rows() ==-1){
+		mysql_query("DELETE FROM orders WHERE order_id = $order_id");
+		mysql_query("DELETE FROM customers WHERE customer_id = $customer_id AND login = '' ");
+		return false;
+	}
+	unset($_SESSION['cart']);
+	unset($_SESSION['total_sum']);
+	unset($_SESSION['total_quantity']);
+	$_SESSION['order']['res'] = "Спасибо за ваш заказ. Мы с вами свяжемся в ближайшее время";
+	return true;
 }

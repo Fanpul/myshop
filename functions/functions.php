@@ -62,3 +62,42 @@ function delete_from_cart($id){
         }
     }
 }
+
+function clear($var){
+    $var = mysql_real_escape_string(strip_tags(trim($var)));
+    return $var;
+}
+
+function add_order(){
+    $dostavka_id = (int)$_POST['dostavka'];
+    if(!$dostavka_id) 
+        $dostavka_id = 1;
+    $prim = clear($_POST['prim']);
+    if($_SESSION['auth']['user']) 
+        $customer_id = $_SESSION['auth']['customer_id'];
+    if(!$_SESSION['auth']['user']){
+        $error = '';
+        $name = clear($_POST['name']);
+        $email = clear($_POST['email']);
+        $phone = clear($_POST['phone']);
+        $address = clear($_POST['address']);
+        if(empty($name)) $error .= '<li>Не указано имя</li>';
+        if(empty($email)) $error .= '<li>Не указан емайл</li>';
+        if(empty($phone)) $error .= '<li>Не указан телефон</li>';
+        if(empty($address)) $error .= '<li>Не указан адрес</li>';
+        if(empty($error)){
+            $customer_id = add_customer($name, $email, $phone, $address);
+            if(!$customer_id) return false;
+        }
+        else{
+            $_SESSION['order']['res'] = "Не заполнены обязательные поля: <ul>$error</ul>";
+            $_SESSION['order']['name'] = $name;
+            $_SESSION['order']['email'] = $email;
+            $_SESSION['order']['phone'] = $phone;
+            $_SESSION['order']['address'] = $address;
+            $_SESSION['order']['prim'] = $prim;
+            return false;
+        }
+    }
+    save_order($customer_id, $dostavka_id, $prim);
+}

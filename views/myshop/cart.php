@@ -4,12 +4,11 @@
 	<div class="prod_box_big">
     	<div class="top_prod_box_big"></div>
         <div class="center_prod_box_big">  
-<?
+<?php
 
 	if($_SESSION['cart']):
 
 ?>
-			<form action="" method="post" id="cart-form">
 				<table id="mycart" align="center" cellspacing="0" cellpadding="0" border="0">
 					  <tr>
 						  	<th></th>
@@ -19,7 +18,7 @@
 							<th>Всего</th>
 							<th></th>
 					  </tr>
-<?
+<?php
 	foreach ($_SESSION['cart'] as $key => $item):
 ?>
 					  <tr>
@@ -30,12 +29,10 @@
 				    	  <td align="center"><?=$item['qty']*$item['price']?> грн.</td>
 				    	  <td align="center"><a href="?view=cart&delete=<?=$key?>"><img src="<?=TEMPLATE?>images/delete.png" alt="удалить"></a></td>
 					  </tr>
-<? endforeach; ?>
+<?php endforeach; ?>
 				</table>	
 				 <p class="total" align="center">Общая сумма заказа: <span class="product-price"><?=$_SESSION['total_sum'];?>грн</span></p>
 				 <!--<p align="center"><input type="submit" name="update" value="Оформить" /></p>	-->		
-			</form>                 
-
 <?php if(!$_SESSION['auth']['user']):?>
     <h3>Информация о доставке</h3>
 		<form method="post" action="#">
@@ -59,31 +56,41 @@
 				<label for="">Примечание</label>
 				<textarea name="prim" id="" cols="30" rows="2"><?=$_SESSION['order']['prim']?></textarea>
 			</div>		
-			<div class="form-align">
-				<input class="btn-reg" type="submit" name="reg" value="Купить">	
-			</div>		
-		</form>  
+
 	<?else:?>  
+		<form action="" method="post">
 		<div class="form-align">
 			<label for="">Примечание</label>
 			<textarea name="prim" id="" cols="30" rows="2"><?=$_SESSION['order']['prim']?></textarea>
 		</div>	
 <?endif;?>
-<h3>Способы доставки</h3>
-	<select name="" id="">
-<?php foreach ($dostavka as $value):?>
-	<option value="<?=$value['dostavka_id']?>"><?=$value['name']?></option>
-<?php endforeach;?>
-</select>
-
-
-
-
+		<div class="form-align">
+			<h3>Способы доставки</h3>
+			<select name="dostavka" id="">
+		<?php foreach ($dostavka as $value):?>
+				<option value="<?=$value['dostavka_id']?>"><?=$value['name']?></option>
+		<?php endforeach;?>
+			</select>
+		</div>
+			<div class="form-align">
+				<input class="btn-reg" type="submit" name="buy" value="Купить">	
+			</div>	
+		</form>  
+		<?=$_SESSION['order']['res']?>
 
 <?else:?>
 	<img src="<?=TEMPLATE?>images/shoppingcart.png" alt="">
 	Ваша корзина пуста!
-<?php endif;?>
+<?php
+
+	endif;
+
+?>
         </div>
     	<div class="bottom_prod_box_big"></div>
     </div>
+<?php
+	echo $_SESSION['order']['res'];
+	unset($_SESSION['order']);
+?>
+<?=$info?>
