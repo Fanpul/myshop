@@ -226,3 +226,22 @@ function save_order($customer_id, $dostavka_id, $prim){
 	$_SESSION['order']['res'] = "Спасибо за ваш заказ. Мы с вами свяжемся в ближайшее время";
 	return true;
 }
+
+function search(){
+	$search = clear($_GET['search']);
+	$result_search = array();
+	if(mb_strlen($search, 'UTF-8') < 4){
+		$result_search['notfound'] = "Не менее 4 символов";
+	}
+	else{
+		$query = "SELECT goods_id, name, img, price, hits, new, sale
+		 FROM goods
+		 WHERE MATCH(name) AGAINST('{$search}*' IN BOOLEAN MODE) AND visible='1'";
+		$res = mysql_query($query) or die(mysql_error());	
+	}
+	$ser = array();
+	while($row = mysql_fetch_assoc($res)){
+		$ser[] = $row;
+	}
+	return $ser;
+}

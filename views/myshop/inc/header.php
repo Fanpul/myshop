@@ -23,8 +23,12 @@
     <div class="top_bar">
       <div class="top_search">
         <div class="search_text"><a href="#">Поиск:</a></div>
-        <input type="text" class="search_input" name="search" />
-        <input type="image" src="<?=TEMPLATE?>images/search.gif" class="search_bt"/>
+        <form action="" method="get">
+          <input type="hidden" class="search_input" name="view" value="search" />
+          <input type="text" class="search_input" name="search" />
+          <input type="submit"  class="search_bt" value="search" name="ser" />
+          <!--input type="submit" src="images/search.gif" class="search_bt"/>-->
+        </form>
       </div>
 
       <div class="languages">

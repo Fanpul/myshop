@@ -73,7 +73,12 @@ switch ($view) {
 			redirect();
 			$info = "Мы с вами свяжемся!";
 		}
-		break;	
+		break;
+	case 'search':
+		
+		if(isset($_GET['ser']))
+		$result_search = search();
+		break;		
 	default:
 		$view = 'hits';
 		$eyestoppers = eyestopper('hits');
