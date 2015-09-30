@@ -22,10 +22,11 @@ function brands($par_id){
 	return $brands;
 }
 
-function products($category){
+function products($category, $start_pos, $perpage){
 	$query = "SELECT goods_id, name, img, price, anons FROM goods 
-		WHERE goods_brandid='$category' AND visible='1'";
+		WHERE goods_brandid='$category' AND visible='1' LIMIT $start_pos, $perpage";
 	$res = mysql_query($query) or die(mysql_error());
+	//$_SESSION['count'][$category] = mysql_num_rows($res);
 	$phones = array();
 	while($row = mysql_fetch_assoc($res)){
 		$phones[] = $row;
@@ -234,14 +235,23 @@ function search(){
 		$result_search['notfound'] = "Не менее 4 символов";
 	}
 	else{
-		$query = "SELECT goods_id, name, img, price, hits, new, sale
+		$query = "SELECT goods_id, name, img, price, hits, new, sale, anons
 		 FROM goods
 		 WHERE MATCH(name) AGAINST('{$search}*' IN BOOLEAN MODE) AND visible='1'";
-		$res = mysql_query($query) or die(mysql_error());	
+		$res = mysql_query($query) or die(mysql_error());
+		$ser = array();
+		while($row = mysql_fetch_assoc($res)){
+			$ser[] = $row;
+		}
+		return $ser;		
 	}
-	$ser = array();
-	while($row = mysql_fetch_assoc($res)){
-		$ser[] = $row;
-	}
-	return $ser;
+}
+
+function count_rows($category){
+	$query = "SELECT goods_id, name, img, price, anons FROM goods 
+		WHERE goods_brandid='$category' AND visible='1'";
+	$res = mysql_query($query) or die(mysql_error());
+	$count_rows = mysql_num_rows($res);
+	$_SESSION['nun'][$category] = $count_rows;
+	return $count_rows;
 }

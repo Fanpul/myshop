@@ -36,8 +36,24 @@ switch ($view) {
 		break;	
 	case 'cat':
 		$category = abs((int)$_GET['category']);
-		$products = products($category);
 		$current_brand = current_brand($category);
+		$perpage = 1;
+		//$page = 1;
+		if(isset($_GET['page'])){
+			$page = (int)$_GET['page'];
+			if($page < 1){
+				$page = 1;
+			}
+		} 
+		else{
+			$page = 1;
+		}
+		$count_rows = count_rows($category);
+		$pages_count = ceil($count_rows / $perpage);
+		if(!$pages_count) $pages_count = 1;
+		if($page > $pages_count) $page = $pages_count;
+		$start_pos = ($page - 1) * $perpage;
+		$products = products($category, $start_pos, $perpage);
 		break;	
 	case 'addtocart':
 		$goods_id = abs((int)$_GET['goods_id']);
@@ -75,8 +91,8 @@ switch ($view) {
 		}
 		break;
 	case 'search':
-		
-		if(isset($_GET['ser']))
+		if($_GET['ser_x'])
+		//if(isset($_GET['ser']))
 		$result_search = search();
 		break;		
 	default:

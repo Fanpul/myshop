@@ -26,6 +26,10 @@
 	</div> 
 </div>
 <?php endforeach;?>
+<div class="block-pagination">
+	<?php if($pages_count > 1) pagination($page, $pages_count)?>
+	<div class="block-pagination"></div>
+</div>
 	<?php else:?>
 		<p>Товаров пока нет!</p>                 
 <?php endif;?>  
@@ -53,6 +57,9 @@
         <div class="bottom_prod_box_big"></div>                                
     </div>
 <?php endforeach;?>
+<div class="block-pagination">
+	<?php if($pages_count > 1) pagination($page, $pages_count)?>
+</div>
 	<?php else:?>
 		<p>Товаров пока нет!</p>                 
 <?php endif;?> 

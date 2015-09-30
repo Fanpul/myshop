@@ -115,3 +115,57 @@ function mail_order($order_id, $email){
     mail($email, $subject, $mail_body, $headers);
     mail(ADMIN_EMAIL, $subject, $mail_body, $headers);
 } 
+
+function pagination($page, $pages_count){
+    //echo "Страница: {$page}; Общее кол-во страниц: {$pages_count}<br/><br/>";
+    if($_SERVER['QUERY_STRING']){
+        foreach ($_GET as $key => $value) {
+            if($key != 'page') $uri .= "{$key}={$value}&amp;";
+        }
+    }
+    $back = ''; //назад
+    $forward = ''; // вперед
+    $startpage = '';
+    $endpage = '';
+    $page2left = '';
+    $page1left = '';
+    $page2right = '';
+    $page1right = '';
+    if($page > 1){
+        $back = "<li class='previous'><a href='?{$uri}page=".($page-1)."'>&laquo; Назад</a></li>";
+    }
+    else{
+        $back = "<li class='previous-off'>&laquo; Назад</li>";        
+    }
+    if($page < $pages_count){
+        $forward = "<li class='next'><a href='?{$uri}page=".($page+1)."'>Вперед &raquo;</a></li>";
+    }
+    else{
+        $forward = "<li class='next-off'>Вперед &raquo;</li>"; 
+    }
+    if($page - 1 > 0){
+        $page1left = "<li><a href='?{$uri}page=".($page-1)."'>".($page-1)."</a></li>";
+    }
+    if($page + 1 <= $pages_count){
+        $page1right = "<li><a href='?{$uri}page=".($page+1)."'>".($page+1)."</a></li>";
+    }
+    if($page - 2 > 0){
+        $page2left = "<li><a href='?{$uri}page=".($page-2)."'>".($page-2)."</a></li>";
+    }
+    if($page + 2 <= $pages_count){
+        $page2right = "<li><a href='?{$uri}page=".($page+2)."'>".($page+2)."</a></li>";
+    }
+    if($page > 3){
+        $startpage = "<li><a href='?{$uri}page=1'>1</a></li>";
+    }
+    if($page < ($pages_count-2)){
+        $endpage = "<li><a href='?{$uri}page={$pages_count}'>$pages_count</a></li>";
+    }
+    if($page > 4){
+        $dotleft = "<li class='next'><a href='?{$uri}page=".($page-3)."'>...</a></li>";
+    }
+    if($page < ($pages_count-3)){
+        $dotright = "<li class='next'><a href='?{$uri}page=".($page+3)."'>...</a></li>";
+    }
+    echo "<ul id='pagination-flickr'>".$back.$startpage.$dotleft.$page2left.$page1left."<li class='active'>".$page."</li>".$page1right.$page2right.$dotright.$endpage.$forward."</ul>";
+}

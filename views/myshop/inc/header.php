@@ -22,12 +22,12 @@
   <header>
     <div class="top_bar">
       <div class="top_search">
-        <div class="search_text"><a href="#">Поиск:</a></div>
+        <div class="search_text">Поиск:</div>
         <form action="" method="get">
           <input type="hidden" class="search_input" name="view" value="search" />
           <input type="text" class="search_input" name="search" />
-          <input type="submit"  class="search_bt" value="search" name="ser" />
-          <!--input type="submit" src="images/search.gif" class="search_bt"/>-->
+          <!--input type=""  class="search_bt" value="search" name="ser" />-->
+          <input type="image" name="ser" src="<?=TEMPLATE?>images/search.gif" class="search_bt"/>
         </form>
       </div>
 

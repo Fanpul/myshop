@@ -27,7 +27,7 @@
 </div>
 <?php endforeach;?>
 	<?php else:?>
-		<p>Товаров пока нет!</p>                 
+		<p>Товары не найдены!</p>                 
 <?php endif;?>  
 <?php else:?>
 	<?php if($result_search):
@@ -54,7 +54,7 @@
     </div>
 <?php endforeach;?>
 	<?php else:?>
-		<p>Товаров пока нет!</p>                 
+		<p>Товары не найдены!</p>                 
 <?php endif;?> 
 <?php endif;?> 
 
